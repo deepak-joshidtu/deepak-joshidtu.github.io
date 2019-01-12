@@ -60,7 +60,15 @@
         function testWebAssembly() {
             return typeof WebAssembly === 'object' ? true : false;
         };
-        
+        function testASM() {
+            try {
+                (function MyAsmModule() { "use asm"; return {} })();
+                return true;
+            }
+            catch (err) {
+                return false;
+            }
+        };
         function testWebGL() {
             try {
                 var canvas = document.createElement('canvas');
